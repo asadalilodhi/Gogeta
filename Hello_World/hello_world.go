@@ -9,7 +9,7 @@ const (
 	frenchHelloPrefix  = "Bonjour, "
 )
 
-func Hello(name string, language string) string {
+func hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
