@@ -1,6 +1,6 @@
 package integers
 
-// Takes two integers and returns their sum
-func Add(x, y int) int {
-	return x + y
+func add(num_1, num_2 int) int {
+	sum := num_1 + num_2
+	return sum
 }
