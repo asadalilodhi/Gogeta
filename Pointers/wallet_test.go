@@ -31,14 +31,15 @@ func TestWallet(t *testing.T) {
 	Convey("withdrawing more than balance should fail", t, func() {
 		starting_balance := Bitcoin(20)
 		wallet := Wallet{starting_balance}
-		intentional_invalid_withdraw := wallet.withdraw(Bitcoin(10))
+		intentional_invalid_withdraw := wallet.withdraw(Bitcoin(100))
 		result := wallet.balance()
 		Convey("The balance should remian unchanged", func() {
 			So(result, ShouldEqual, starting_balance)
 		})
 
 		Convey("An error should be returned", func() {
-			So(intentional_invalid_withdraw, ShouldNotBeNil)
+			fmt.Println("Withdraw error:", intentional_invalid_withdraw)
+			So(intentional_invalid_withdraw, ShouldEqual, ErrInsufficientFunds)
 		})
 	})
 }
